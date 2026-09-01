@@ -93,7 +93,7 @@ export const Footer = () => {
                 href="https://www.instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex h-10 items-center gap-2 rounded-xl border border-transparent bg-gradient-to-r from-fuchsia-500 via-rose-500 to-amber-500 px-3 text-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-rose-500/20"
+                className="group inline-flex h-10 w-10 items-center justify-center rounded-xl border border-transparent bg-gradient-to-r from-fuchsia-500 via-rose-500 to-amber-500 text-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-rose-500/20"
                 aria-label="Follow Furnics on Instagram"
               >
                 <svg viewBox="0 0 24 24" className="w-4 h-4 transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" strokeWidth="2">
@@ -101,7 +101,6 @@ export const Footer = () => {
                   <circle cx="12" cy="12" r="4" />
                   <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
                 </svg>
-                <span className="hidden md:inline text-[10px] font-bold uppercase tracking-wider">Follow us</span>
               </a>
             </div>
           </div>
