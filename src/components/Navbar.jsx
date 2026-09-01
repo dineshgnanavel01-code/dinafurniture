@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+<<<<<<< HEAD
 import { ShoppingBag, Heart, Sun, Moon, User, Menu, X, Search, Compass, LayoutGrid, Sofa, Utensils, Bed, Briefcase } from 'lucide-react';
+=======
+import { ShoppingBag, Heart, Sun, Moon, User, Menu, X, Search, Compass, Sofa, Utensils, BedDouble, BriefcaseBusiness, Store } from 'lucide-react';
+>>>>>>> 7f98e5724ab276abea0d5fd73ea7d538bfc1055b
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../context/CartContext';
 import AuthModal from './AuthModal';
@@ -68,11 +72,19 @@ export default function Navbar() {
 
   const navItems = [
     { name: 'Discover', path: '/', icon: Compass },
+<<<<<<< HEAD
     { name: 'Collection', path: '/shop', icon: LayoutGrid },
     { name: 'Living', path: '/shop?category=Living+Room', icon: Sofa },
     { name: 'Dining', path: '/shop?category=Dining', icon: Utensils },
     { name: 'Bedroom', path: '/shop?category=Bedroom', icon: Bed },
     { name: 'Studio', path: '/shop?category=Office', icon: Briefcase }
+=======
+    { name: 'Collection', path: '/shop', icon: Store },
+    { name: 'Living', path: '/shop?category=Living+Room', icon: Sofa },
+    { name: 'Dining', path: '/shop?category=Dining', icon: Utensils },
+    { name: 'Bedroom', path: '/shop?category=Bedroom', icon: BedDouble },
+    { name: 'Studio', path: '/shop?category=Office', icon: BriefcaseBusiness }
+>>>>>>> 7f98e5724ab276abea0d5fd73ea7d538bfc1055b
   ];
 
   return (
@@ -80,17 +92,28 @@ export default function Navbar() {
       <header className={`sticky top-0 z-50 transition-all duration-300 bg-stone-50/90 dark:bg-stone-900/90 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 ${
         scrolled ? 'shadow-md py-3' : 'py-4'
       }`} style={{ fontFamily: 'var(--font-primary)' }}>
+<<<<<<< HEAD
         
         <div className="border-b border-stone-200/60 dark:border-stone-800/60 bg-stone-100/50 dark:bg-stone-900/50 py-1.5 px-4 sm:px-6 lg:px-8 mb-3 -mt-4 -mx-4 sm:-mx-6 lg:-mx-8">
           <div className="container-custom mx-auto flex items-center justify-between text-[11px] tracking-wider uppercase text-stone-500 dark:text-stone-400 font-medium">
             <span>Thoughtful furniture for modern living</span>
             <span className="flex items-center gap-1.5 text-stone-700 dark:text-stone-300">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse"></span>
+=======
+        <div className="hidden sm:block border-b border-stone-200/70 dark:border-stone-800/70 bg-stone-100/70 dark:bg-stone-950/40">
+          <div className="container-custom mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400">
+            <span>Thoughtful furniture for modern living</span>
+            <span className="flex items-center gap-2 text-amber-700 dark:text-amber-400">
+              <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
+>>>>>>> 7f98e5724ab276abea0d5fd73ea7d538bfc1055b
               Free delivery above ₹4,999
             </span>
           </div>
         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7f98e5724ab276abea0d5fd73ea7d538bfc1055b
         <div className="container-custom mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="flex items-center justify-between relative">
@@ -103,19 +126,33 @@ export default function Navbar() {
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
 
-              <Link to="/" className="group flex items-center space-x-2">
-                <span className="text-2xl font-extrabold tracking-tight text-stone-900 dark:text-white" style={{ fontFamily: 'var(--font-secondary)' }}>Furnics</span>
-                <span className="w-2 h-2 rounded-full bg-amber-600 transition-transform group-hover:scale-150"></span>
+              <Link to="/" className="group flex items-center gap-2.5">
+                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-stone-900 text-amber-300 shadow-sm transition-transform duration-300 group-hover:-rotate-6 dark:bg-stone-100 dark:text-amber-600">
+                  <Sofa className="w-5 h-5" />
+                </span>
+                <span>
+                  <span className="block text-xl font-extrabold leading-none tracking-tight text-stone-900 dark:text-white" style={{ fontFamily: 'var(--font-secondary)' }}>Furnics</span>
+                  <span className="hidden sm:block mt-1 text-[8px] font-semibold uppercase tracking-[0.2em] text-stone-400 dark:text-stone-500">Furniture studio</span>
+                </span>
               </Link>
             </div>
 
+<<<<<<< HEAD
             <nav className="hidden md:flex items-center space-x-1 bg-stone-200/70 dark:bg-stone-800/80 p-1.5 rounded-2xl border border-stone-300/40 dark:border-stone-700/50 shadow-inner relative">
               {navItems.map((item) => {
                 const active = isActiveLink(item.path);
                 const IconComponent = item.icon;
+=======
+            {/* Desktop Center Navigation */}
+            <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-1 border-l border-stone-200 dark:border-stone-800 pl-5 relative">
+              {navItems.map((item) => {
+                const active = isActiveLink(item.path);
+                const Icon = item.icon;
+>>>>>>> 7f98e5724ab276abea0d5fd73ea7d538bfc1055b
                 return (
-                  <Link
+                  <motion.div
                     key={item.name}
+<<<<<<< HEAD
                     to={item.path}
                     className="relative px-3.5 py-1.5 rounded-xl text-xs font-medium tracking-wide transition-colors duration-200 z-10 flex items-center space-x-1.5"
                     style={{ fontFamily: 'var(--font-primary)' }}>
@@ -131,6 +168,29 @@ export default function Navbar() {
                       {item.name}
                     </span>
                   </Link>
+=======
+                    whileHover={{ y: -1 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="relative"
+                  >
+                    <Link
+                      to={item.path}
+                      aria-current={active ? 'page' : undefined}
+                      className={`group relative flex items-center gap-2 px-2.5 xl:px-3 py-2.5 rounded-lg text-[11px] font-semibold tracking-wide transition-all duration-200 z-10 ${active ? 'text-stone-900 dark:text-white' : 'text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800/70 hover:text-stone-900 dark:hover:text-white'}`}
+                      style={{ fontFamily: 'var(--font-primary)' }}
+                    >
+                      {active && (
+                        <motion.span
+                          layoutId="activePill"
+                          className="absolute bottom-0 left-2 right-2 h-0.5 bg-amber-600 dark:bg-amber-400 rounded-full -z-10"
+                          transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                        />
+                      )}
+                      <Icon className={`w-3.5 h-3.5 transition-all duration-300 ${active ? 'text-amber-600 dark:text-amber-400' : 'group-hover:-translate-y-0.5 group-hover:text-amber-600'}`} />
+                      <span>{item.name}</span>
+                    </Link>
+                  </motion.div>
+>>>>>>> 7f98e5724ab276abea0d5fd73ea7d538bfc1055b
                 );
               })}
             </nav>
@@ -194,12 +254,31 @@ export default function Navbar() {
                 <span>{totalItems}</span>
               </Link>
 
+<<<<<<< HEAD
               <button 
                 onClick={() => setIsAuthOpen(true)}
                 className="hidden sm:flex items-center space-x-1 border border-stone-300 dark:border-stone-700 px-3 py-2 rounded-xl text-xs font-medium text-stone-700 dark:text-stone-300 hover:border-stone-400 transition">
                 <User className="w-4 h-4 text-amber-600" />
                 <span>Account</span>
               </button>
+=======
+              {/* User Account Trigger */}
+              <motion.button
+                onClick={() => setIsAuthOpen(true)}
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                className="hidden sm:flex items-center gap-2 rounded-2xl border border-stone-200 dark:border-stone-700 bg-white/80 dark:bg-stone-800/80 pl-1.5 pr-3 py-1.5 text-left shadow-sm hover:border-amber-400/70 hover:shadow-md transition-all duration-300"
+              >
+                <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-amber-100 to-stone-100 text-amber-700 dark:from-amber-500/20 dark:to-stone-700 dark:text-amber-300">
+                  <User className="w-4 h-4" />
+                </span>
+                <span className="block">
+                  <span className="block text-[9px] font-bold uppercase tracking-[0.16em] text-stone-400 dark:text-stone-500">Welcome</span>
+                  <span className="block text-xs font-semibold text-stone-800 dark:text-stone-100">My Account</span>
+                </span>
+                <span className="ml-1 h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_0_3px_rgba(16,185,129,0.12)]" aria-hidden="true" />
+              </motion.button>
+>>>>>>> 7f98e5724ab276abea0d5fd73ea7d538bfc1055b
 
             </div>
 
@@ -212,6 +291,7 @@ export default function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
+<<<<<<< HEAD
               className="md:hidden border-t border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 px-4 py-6 space-y-3 mt-4">
               {navItems.map((item) => {
                 const IconComponent = item.icon;
@@ -228,6 +308,28 @@ export default function Navbar() {
                     <IconComponent className="w-4 h-4" />
                     <span>{item.name}</span>
                   </Link>
+=======
+              className="md:hidden border-t border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 px-4 py-6 space-y-3"
+            >
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition ${
+                    isActiveLink(item.path) 
+                      ? 'bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900' 
+                      : 'text-stone-600 dark:text-stone-300 hover:bg-stone-200/50 dark:hover:bg-stone-800/50'
+                  }`}
+                >
+                  <span className="flex items-center gap-3">
+                    <Icon className="w-4 h-4 text-amber-600" />
+                    {item.name}
+                  </span>
+                </Link>
+>>>>>>> 7f98e5724ab276abea0d5fd73ea7d538bfc1055b
                 );
               })}
               <div className="pt-3 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between px-2">

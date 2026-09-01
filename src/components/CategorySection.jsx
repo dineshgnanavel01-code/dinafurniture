@@ -4,18 +4,22 @@ import { Link } from 'react-router-dom';
 const categories = [
   {
     name: 'Living Room',
+    path: '/shop?category=Living+Room',
     image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80',
   },
   {
     name: 'Dining',
+    path: '/shop?category=Dining',
     image: 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=600&q=80',
   },
   {
     name: 'Bedroom',
+    path: '/shop?category=Bedroom',
     image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80',
   },
   {
     name: 'Office',
+    path: '/shop?category=Office',
     image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=600&q=80',
   }
 ];
@@ -31,13 +35,13 @@ export default function CategorySection() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {categories.map((cat) => (
           <Link 
-            to="/shop" 
+            to={cat.path}
             key={cat.name} 
             className="group relative h-80 rounded-2xl overflow-hidden block shadow-sm hover:shadow-md transition">
             <img 
               src={cat.image} 
               alt={cat.name} 
-              className="w-full h-full object-cover group-hover:scale-105 transition duration-500" 
+              className="w-full h-full object-cover object-center group-hover:scale-105 transition duration-500"
             />
             <div className="absolute inset-0 bg-stone-900/40 flex items-end p-6">
               <h3 className="text-xl font-serif font-medium text-white">{cat.name}</h3>

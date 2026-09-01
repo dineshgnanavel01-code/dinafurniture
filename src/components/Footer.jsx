@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ShieldCheck, Truck, Headphones, RotateCcw, Sparkles } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Truck, Headphones, RotateCcw, Sparkles, Sofa, Utensils, BedDouble, BriefcaseBusiness, ShoppingBag, LifeBuoy, PackageCheck, RefreshCcw, LockKeyhole } from 'lucide-react';
 
 export const Footer = () => {
   return (
@@ -72,16 +72,16 @@ export const Footer = () => {
            
             <div className="flex items-center gap-3 pt-1">
               {[
-                { label: 'Facebook', href: 'https://facebook.com', path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' },
-                { label: 'Twitter', href: 'https://twitter.com', path: 'M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z' },
-                { label: 'Youtube', href: 'https://youtube.com', path: 'M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z' }
+                { label: 'Facebook', href: 'https://facebook.com', color: 'text-[#1877F2] hover:bg-[#1877F2] hover:text-white', path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' },
+                { label: 'Twitter', href: 'https://twitter.com', color: 'text-[#1DA1F2] hover:bg-[#1DA1F2] hover:text-white', path: 'M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z' },
+                { label: 'Youtube', href: 'https://youtube.com', color: 'text-[#FF0000] hover:bg-[#FF0000] hover:text-white', path: 'M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z' }
               ].map((social) => (
                 <a 
                   key={social.label}
                   href={social.href} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-10 h-10 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 flex items-center justify-center text-stone-600 dark:text-stone-400 hover:bg-stone-900 hover:text-white dark:hover:bg-amber-600 dark:hover:text-white hover:border-transparent transition-all duration-300 shadow-sm" 
+                  className={`w-10 h-10 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 flex items-center justify-center ${social.color} hover:border-transparent transition-all duration-300 shadow-sm`}
                   aria-label={social.label}
                 >
                   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -89,30 +89,67 @@ export const Footer = () => {
                   </svg>
                 </a>
               ))}
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex h-10 w-10 items-center justify-center rounded-xl border border-transparent bg-gradient-to-r from-fuchsia-500 via-rose-500 to-amber-500 text-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-rose-500/20"
+                aria-label="Follow Furnics on Instagram"
+              >
+                <svg viewBox="0 0 24 24" className="w-4 h-4 transition-transform duration-300 group-hover:rotate-12" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                </svg>
+              </a>
             </div>
           </div>
 
           
           <div className="space-y-4">
             <h4 className="text-xs font-bold text-stone-900 dark:text-stone-100 uppercase tracking-widest">Quick Links</h4>
-            <ul className="space-y-3 text-sm">
-              <li><Link to="/shop" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Shop All</Link></li>
-              <li><Link to="/shop?category=Living+Room" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Living Room</Link></li>
-              <li><Link to="/shop?category=Bedroom" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Bedroom</Link></li>
-              <li><Link to="/shop?category=Dining" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Dining Space</Link></li>
-              <li><Link to="/shop?category=Office" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Office & Desks</Link></li>
+            <ul className="space-y-2 text-sm">
+              {[
+                { label: 'Shop All', to: '/shop', icon: ShoppingBag },
+                { label: 'Living Room', to: '/shop?category=Living+Room', icon: Sofa },
+                { label: 'Bedroom', to: '/shop?category=Bedroom', icon: BedDouble },
+                { label: 'Dining Space', to: '/shop?category=Dining', icon: Utensils },
+                { label: 'Office & Desks', to: '/shop?category=Office', icon: BriefcaseBusiness }
+              ].map(({ label, to, icon: Icon }) => (
+                <li key={label}>
+                  <Link to={to} className="group flex items-center gap-2.5 rounded-xl px-2.5 py-2 -mx-2.5 text-stone-600 dark:text-stone-400 hover:bg-white dark:hover:bg-stone-800/80 hover:text-amber-600 dark:hover:text-amber-400 transition-all duration-300">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400 group-hover:bg-amber-100 dark:group-hover:bg-amber-500/15 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300">
+                      <Icon className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-300" />
+                    </span>
+                    <span className="flex-1">{label}</span>
+                    <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           
           <div className="space-y-4">
             <h4 className="text-xs font-bold text-stone-900 dark:text-stone-100 uppercase tracking-widest">Customer Care</h4>
-            <ul className="space-y-3 text-sm">
-              <li><Link to="/contact" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Contact Us</Link></li>
-              <li><Link to="/faq" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">FAQs & Support</Link></li>
-              <li><Link to="/shipping" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Shipping & Delivery</Link></li>
-              <li><Link to="/returns" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Returns & Refunds</Link></li>
-              <li><Link to="/privacy" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Privacy Policy</Link></li>
+            <ul className="space-y-2 text-sm">
+              {[
+                { label: 'Contact Us', to: '/contact', icon: Headphones },
+                { label: 'FAQs & Support', to: '/faq', icon: LifeBuoy },
+                { label: 'Shipping & Delivery', to: '/shipping', icon: PackageCheck },
+                { label: 'Returns & Refunds', to: '/returns', icon: RefreshCcw },
+                { label: 'Privacy Policy', to: '/privacy', icon: LockKeyhole }
+              ].map(({ label, to, icon: Icon }) => (
+                <li key={label}>
+                  <Link to={to} className="group flex items-center gap-2.5 rounded-xl px-2.5 py-2 -mx-2.5 text-stone-600 dark:text-stone-400 hover:bg-white dark:hover:bg-stone-800/80 hover:text-amber-600 dark:hover:text-amber-400 transition-all duration-300">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400 group-hover:bg-amber-100 dark:group-hover:bg-amber-500/15 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300">
+                      <Icon className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-300" />
+                    </span>
+                    <span className="flex-1">{label}</span>
+                    <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
