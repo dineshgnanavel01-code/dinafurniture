@@ -9,6 +9,7 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Wishlist from './pages/Wishlist';
 import InfoPage from './pages/InfoPage';
+import Contact from './pages/Contact';
 import { Footer } from './components/Footer';
 
 function ScrollToTop() {
@@ -35,7 +36,7 @@ export default function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/checkout" element={<Checkout />} />
-            <Route path="/contact" element={<InfoPage title="Contact Us" eyebrow="We are here to help" description="Have a question about an order, product, or delivery? Our customer care team is ready to help you create a more comfortable space." />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<InfoPage title="FAQs & Support" eyebrow="Helpful answers" description="Find clear answers about shopping, payments, delivery, care, and returns. If you need anything else, our support team is only a message away." />} />
             <Route path="/shipping" element={<InfoPage title="Shipping & Delivery" eyebrow="Delivered with care" description="We carefully prepare every order and keep you updated from checkout to doorstep delivery." />} />
             <Route path="/returns" element={<InfoPage title="Returns & Refunds" eyebrow="Shop with confidence" description="If a piece is not the right fit for your home, our straightforward return support is here to make the next step simple." />} />

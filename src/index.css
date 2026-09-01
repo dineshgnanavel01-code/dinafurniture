@@ -64,6 +64,37 @@ img {
   font-family: var(--font-secondary);
 }
 
+.contact-input {
+  display: block;
+  width: 100%;
+  margin-top: 0.55rem;
+  border: 1px solid #e7e5e4;
+  border-radius: 0.75rem;
+  background: #fff;
+  padding: 0.8rem 0.9rem;
+  color: #1c1917;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 400;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-input::placeholder {
+  color: #a8a29e;
+}
+
+.contact-input:focus {
+  border-color: #d97706;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.12);
+}
+
+.dark .contact-input {
+  border-color: #44403c;
+  background: #292524;
+  color: #f5f5f4;
+}
+
 /* --- Dynamic Font Classes --- */
 .font-sans-inter {
   --font-primary: Inter, ui-sans-serif, system-ui, sans-serif !important;
