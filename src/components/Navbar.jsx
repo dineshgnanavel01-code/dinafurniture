@@ -96,14 +96,19 @@ export default function Navbar() {
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
 
-              <Link to="/" className="group flex items-center space-x-2">
-                <span className="text-2xl font-extrabold tracking-tight text-stone-900 dark:text-white" style={{ fontFamily: 'var(--font-secondary)' }}>Furnics</span>
-                <span className="w-2 h-2 rounded-full bg-amber-600 transition-transform group-hover:scale-150"></span>
+              <Link to="/" className="group flex items-center gap-2.5">
+                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-stone-900 text-amber-300 shadow-sm transition-transform duration-300 group-hover:-rotate-6 dark:bg-stone-100 dark:text-amber-600">
+                  <Sofa className="w-5 h-5" />
+                </span>
+                <span>
+                  <span className="block text-xl font-extrabold leading-none tracking-tight text-stone-900 dark:text-white" style={{ fontFamily: 'var(--font-secondary)' }}>Furnics</span>
+                  <span className="hidden sm:block mt-1 text-[8px] font-semibold uppercase tracking-[0.2em] text-stone-400 dark:text-stone-500">Furniture studio</span>
+                </span>
               </Link>
             </div>
 
             {/* Desktop Center Navigation */}
-            <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-0.5 bg-stone-200/70 dark:bg-stone-800/80 p-1.5 rounded-2xl border border-stone-300/40 dark:border-stone-700/50 shadow-inner relative">
+            <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-1 border-l border-stone-200 dark:border-stone-800 pl-5 relative">
               {navItems.map((item) => {
                 const active = isActiveLink(item.path);
                 const Icon = item.icon;
@@ -117,17 +122,17 @@ export default function Navbar() {
                     <Link
                       to={item.path}
                       aria-current={active ? 'page' : undefined}
-                      className={`group relative flex items-center gap-1.5 px-2.5 xl:px-3 py-2 rounded-xl text-[11px] font-semibold tracking-wide transition-colors duration-200 z-10 ${active ? 'text-white dark:text-stone-900' : 'text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white'}`}
+                      className={`group relative flex items-center gap-2 px-2.5 xl:px-3 py-2.5 rounded-lg text-[11px] font-semibold tracking-wide transition-all duration-200 z-10 ${active ? 'text-stone-900 dark:text-white' : 'text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800/70 hover:text-stone-900 dark:hover:text-white'}`}
                       style={{ fontFamily: 'var(--font-primary)' }}
                     >
                       {active && (
                         <motion.span
                           layoutId="activePill"
-                          className="absolute inset-0 bg-stone-900 dark:bg-stone-100 rounded-xl shadow-sm -z-10"
+                          className="absolute bottom-0 left-2 right-2 h-0.5 bg-amber-600 dark:bg-amber-400 rounded-full -z-10"
                           transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                         />
                       )}
-                      <Icon className={`w-3.5 h-3.5 transition-transform duration-300 ${active ? 'text-amber-300 dark:text-amber-600' : 'group-hover:rotate-[-8deg]'}`} />
+                      <Icon className={`w-3.5 h-3.5 transition-all duration-300 ${active ? 'text-amber-600 dark:text-amber-400' : 'group-hover:-translate-y-0.5 group-hover:text-amber-600'}`} />
                       <span>{item.name}</span>
                     </Link>
                   </motion.div>
