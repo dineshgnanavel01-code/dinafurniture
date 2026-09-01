@@ -7,6 +7,7 @@ import Shop from './pages/Shop';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
+import Wishlist from './pages/Wishlist';
 import { Footer } from './components/Footer';
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
             <Route path="/shop" element={<Shop />} />
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/checkout" element={<Checkout />} />
           </Routes>
           <Footer />
