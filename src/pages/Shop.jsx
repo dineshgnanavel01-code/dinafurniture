@@ -16,7 +16,7 @@ export default function Shop() {
 
   const categories = ['All', 'Living Room', 'Dining', 'Bedroom', 'Office'];
 
-  // Sync state with URL parameters whenever they change
+
   useEffect(() => {
     if (categoryParam) {
       setSelectedCategory(categoryParam);
@@ -28,7 +28,7 @@ export default function Shop() {
     }
   }, [categoryParam, searchParam]);
 
-  // Filter products by category, search query, and price range
+ 
   let filtered = products.filter((p) => {
     const matchesCategory = selectedCategory === 'All' || p.category.toLowerCase() === selectedCategory.toLowerCase();
     const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -37,7 +37,7 @@ export default function Shop() {
     return matchesCategory && matchesSearch && matchesPrice;
   });
 
-  // Sort products
+  
   if (sortBy === 'low-high') filtered.sort((a, b) => a.price - b.price);
   if (sortBy === 'high-low') filtered.sort((a, b) => b.price - a.price);
   if (sortBy === 'rating') filtered.sort((a, b) => b.rating - a.rating);
@@ -56,13 +56,11 @@ export default function Shop() {
             placeholder="Search furniture..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="bg-stone-100 dark:bg-stone-800 border-none text-stone-800 dark:text-stone-200 text-sm rounded-lg px-4 py-2.5 w-full md:w-64 focus:ring-2 focus:ring-stone-900"
-          />
+            className="bg-stone-100 dark:bg-stone-800 border-none text-stone-800 dark:text-stone-200 text-sm rounded-lg px-4 py-2.5 w-full md:w-64 focus:ring-2 focus:ring-stone-900"/>
           <select 
             value={sortBy} 
             onChange={(e) => setSortBy(e.target.value)}
-            className="bg-stone-100 dark:bg-stone-800 border-none text-stone-800 dark:text-stone-200 text-sm rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-stone-900"
-          >
+            className="bg-stone-100 dark:bg-stone-800 border-none text-stone-800 dark:text-stone-200 text-sm rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-stone-900">
             <option value="featured">Sort by: Featured</option>
             <option value="low-high">Price: Low to High</option>
             <option value="high-low">Price: High to Low</option>
@@ -72,7 +70,6 @@ export default function Shop() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Filter Sidebar */}
         <div className="space-y-6 bg-stone-50 dark:bg-stone-800/50 p-6 rounded-2xl h-fit">
           <div className="flex items-center space-x-2 text-stone-900 dark:text-white font-medium">
             <SlidersHorizontal className="w-4 h-4" />
@@ -90,8 +87,7 @@ export default function Shop() {
                     selectedCategory === cat 
                       ? 'bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 font-medium' 
                       : 'text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800'
-                  }`}
-                >
+                  }`}>
                   {cat}
                 </button>
               ))}
@@ -110,12 +106,10 @@ export default function Shop() {
               step="50"
               value={maxPrice}
               onChange={(e) => setMaxPrice(Number(e.target.value))}
-              className="w-full accent-stone-900 dark:accent-stone-100 cursor-pointer"
-            />
+              className="w-full accent-stone-900 dark:accent-stone-100 cursor-pointer"/>
           </div>
         </div>
 
-        {/* Product Grid Layout */}
         <div className="lg:col-span-3">
           {filtered.length === 0 ? (
             <div className="text-center py-20 bg-stone-50 dark:bg-stone-800/50 rounded-2xl">

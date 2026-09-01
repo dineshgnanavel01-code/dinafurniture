@@ -1,4 +1,3 @@
-// src/components/Newsletter.jsx
 import React from "react";
 
 export default function Newsletter() {
@@ -12,8 +11,7 @@ export default function Newsletter() {
         <input
           type="email"
           placeholder="Enter your email"
-          className="px-4 py-2 border rounded w-64"
-        />
+          className="px-4 py-2 border rounded w-64"/>
         <button className="bg-orange-600 text-white px-6 py-2 rounded hover:bg-orange-700 transition">
           Subscribe
         </button>

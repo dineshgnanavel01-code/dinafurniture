@@ -7,6 +7,11 @@ import Shop from './pages/Shop';
 import ProductDetails from './pages/ProductDetails';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
+import Contact from './pages/Contact';
+import Faqs from './pages/Faqs';
+import Shipping from './pages/Shipping';
+import Returns from './pages/Returns';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import { Footer } from './components/Footer';
 
 export default function App() {
@@ -21,6 +26,11 @@ export default function App() {
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/faqs" element={<Faqs />} />
+            <Route path="/shipping" element={<Shipping />} />
+            <Route path="/returns" element={<Returns />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
           <Footer />
         </div>

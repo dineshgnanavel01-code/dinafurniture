@@ -8,7 +8,7 @@ export const Footer = () => {
 
       <div className="container-custom mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Value Proposition Bar */}
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 pb-16 mb-16 border-b border-stone-200/80 dark:border-stone-800/80">
           
           <div className="group flex items-center gap-4 p-5 rounded-2xl bg-white dark:bg-stone-800/50 border border-stone-200/70 dark:border-stone-800 shadow-sm hover:shadow-md hover:border-amber-500/30 dark:hover:border-amber-500/30 transition-all duration-300">
@@ -53,10 +53,10 @@ export const Footer = () => {
 
         </div>
 
-        {/* Main Footer Content */}
+      
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-14 border-b border-stone-200/80 dark:border-stone-800/80">
           
-          {/* Brand & Bio */}
+          
           <div className="lg:col-span-2 space-y-5">
             <Link to="/" className="group inline-flex items-center space-x-2">
               <span className="text-3xl font-extrabold tracking-tight text-stone-900 dark:text-white" style={{ fontFamily: 'var(--font-secondary)' }}>
@@ -69,7 +69,7 @@ export const Footer = () => {
               Crafting contemporary spaces with timeless elegance. Discover handcrafted furniture, ergonomic workspaces, and minimalist decor designed for modern living.
             </p>
 
-            {/* Social Icons */}
+           
             <div className="flex items-center gap-3 pt-1">
               {[
                 { label: 'Facebook', href: 'https://facebook.com', path: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z' },
@@ -92,7 +92,7 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          
           <div className="space-y-4">
             <h4 className="text-xs font-bold text-stone-900 dark:text-stone-100 uppercase tracking-widest">Quick Links</h4>
             <ul className="space-y-3 text-sm">
@@ -104,7 +104,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Customer Service */}
+          
           <div className="space-y-4">
             <h4 className="text-xs font-bold text-stone-900 dark:text-stone-100 uppercase tracking-widest">Customer Care</h4>
             <ul className="space-y-3 text-sm">
@@ -116,7 +116,7 @@ export const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter Signup */}
+         
           <div className="space-y-4">
             <div className="flex items-center gap-1.5">
               <h4 className="text-xs font-bold text-stone-900 dark:text-stone-100 uppercase tracking-widest">Stay Inspired</h4>
@@ -145,7 +145,7 @@ export const Footer = () => {
 
         </div>
 
-        {/* Bottom Bar */}
+        
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500 dark:text-stone-400">
           <p>© {new Date().getFullYear()} Furnics India. All rights reserved.</p>
           <div className="flex items-center gap-6">

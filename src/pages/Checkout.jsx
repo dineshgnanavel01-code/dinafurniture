@@ -22,7 +22,6 @@ export default function Checkout() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    // Clear error when user types
     if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
@@ -32,7 +31,6 @@ export default function Checkout() {
     if (formData.cardNumber.replace(/\s/g, '').length < 16) newErrors.cardNumber = 'Invalid card number';
     if (formData.cvv.length < 3) newErrors.cvv = 'Invalid CVV';
     
-    // Check required fields
     ['firstName', 'lastName', 'address', 'city', 'zip', 'expiry'].forEach(field => {
       if (!formData[field].trim()) newErrors[field] = 'This field is required';
     });
@@ -45,11 +43,9 @@ export default function Checkout() {
     e.preventDefault();
     if (validateForm()) {
       setIsSubmitting(true);
-      // Simulate API call
       setTimeout(() => {
         setIsSubmitting(false);
         setOrderComplete(true);
-        // Clear cart in a real app here
       }, 1500);
     }
   };
@@ -91,12 +87,12 @@ export default function Checkout() {
       </Link>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        {/* Checkout Form */}
+        
         <div className="lg:col-span-2">
           <h1 className="text-3xl font-serif font-bold text-stone-900 dark:text-white mb-8">Checkout</h1>
           
           <form onSubmit={handleSubmit} className="space-y-8">
-            {/* Contact & Shipping */}
+           
             <div className="space-y-4">
               <div className="flex items-center space-x-2 text-stone-900 dark:text-white font-serif text-xl font-medium mb-4">
                 <Truck className="w-5 h-5" />
@@ -128,7 +124,7 @@ export default function Checkout() {
               </div>
             </div>
 
-            {/* Payment Info */}
+            
             <div className="space-y-4 pt-6 border-t border-stone-200 dark:border-stone-700">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-2 text-stone-900 dark:text-white font-serif text-xl font-medium">
@@ -163,7 +159,7 @@ export default function Checkout() {
           </form>
         </div>
 
-        {/* Order Summary Sidebar */}
+        
         <div className="bg-stone-50 dark:bg-stone-800/50 p-6 rounded-2xl h-fit space-y-6 sticky top-24">
           <h3 className="text-xl font-serif font-bold text-stone-900 dark:text-white">Order Summary</h3>
           

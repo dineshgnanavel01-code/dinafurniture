@@ -16,16 +16,13 @@ export default function ProductCard({ product }) {
             src={imgSrc} 
             alt={product.name}
             onError={() => setImgSrc("https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80")}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"/>
           
-          {/* Quick Action Overlay on Hover */}
           <div className="absolute inset-0 bg-stone-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-2">
             <Link 
               to={`/product/${product.id}`}
               className="p-3 bg-white dark:bg-stone-900 text-stone-900 dark:text-white rounded-full shadow-lg transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 hover:scale-110"
-              aria-label="Quick View"
-            >
+              aria-label="Quick View">
               <Eye className="w-4 h-4" />
             </Link>
           </div>
@@ -53,16 +50,14 @@ export default function ProductCard({ product }) {
       <div className="mt-6 flex items-center gap-2">
         <button 
           onClick={() => addToCart(product)}
-          className="flex-1 bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 py-2.5 px-4 rounded-xl text-xs font-medium flex items-center justify-center space-x-2 hover:bg-stone-800 dark:hover:bg-stone-200 transition-all shadow-sm active:scale-95"
-        >
+          className="flex-1 bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 py-2.5 px-4 rounded-xl text-xs font-medium flex items-center justify-center space-x-2 hover:bg-stone-800 dark:hover:bg-stone-200 transition-all shadow-sm active:scale-95">
           <ShoppingBag className="w-4 h-4" />
           <span>Add to Cart</span>
         </button>
 
         <Link 
           to={`/product/${product.id}`}
-          className="px-3.5 py-2.5 rounded-xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-800/50 text-stone-700 dark:text-stone-300 hover:bg-stone-900 hover:text-white dark:hover:bg-stone-100 dark:hover:text-stone-900 text-xs font-medium transition-all duration-300 flex items-center justify-center whitespace-nowrap shadow-sm active:scale-95"
-        >
+          className="px-3.5 py-2.5 rounded-xl border border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-800/50 text-stone-700 dark:text-stone-300 hover:bg-stone-900 hover:text-white dark:hover:bg-stone-100 dark:hover:text-stone-900 text-xs font-medium transition-all duration-300 flex items-center justify-center whitespace-nowrap shadow-sm active:scale-95">
           View Details
         </Link>
       </div>

@@ -113,8 +113,7 @@ export default function AuthModal({ isOpen, onClose }) {
 
           <button 
             type="submit"
-            className="w-full bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 py-3 rounded-xl font-medium text-sm hover:opacity-95 transition"
-          >
+            className="w-full bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 py-3 rounded-xl font-medium text-sm hover:opacity-95 transition">
             {isLogin ? 'Sign In' : 'Sign Up'}
           </button>
         </form>

@@ -11,7 +11,6 @@ export default function ProductDetails() {
   const [qty, setQty] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
 
-  // Safely find product using string/number parsing
   const product = products.find((p) => String(p.id) === String(id)) || products[0];
   const isWishlisted = wishlist.some((item) => String(item.id) === String(product?.id));
 
@@ -21,15 +20,13 @@ export default function ProductDetails() {
         <h2 className="text-2xl font-bold mb-4">Product not found</h2>
         <button 
           onClick={() => navigate('/shop')} 
-          className="px-6 py-2 bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 rounded-full"
-        >
+          className="px-6 py-2 bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 rounded-full">
           Back to Collection
         </button>
       </div>
     );
   }
 
-  // Simulated multi-image gallery using variations of the main image
   const gallery = [
     product.image,
     "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80",
@@ -47,7 +44,6 @@ export default function ProductDetails() {
       </button>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Image Gallery */}
         <div className="space-y-4">
           <div className="aspect-square bg-stone-100 dark:bg-stone-800 rounded-2xl overflow-hidden shadow-sm">
             <img src={gallery[selectedImage]} alt={product.name} className="w-full h-full object-cover" />
@@ -59,15 +55,13 @@ export default function ProductDetails() {
                 onClick={() => setSelectedImage(index)}
                 className={`aspect-square rounded-xl overflow-hidden border-2 transition ${
                   selectedImage === index ? 'border-purple-600 dark:border-purple-400' : 'border-transparent opacity-70 hover:opacity-100'
-                }`}
-              >
+                }`}>
                 <img src={img} alt="" className="w-full h-full object-cover" />
               </button>
             ))}
           </div>
         </div>
 
-        {/* Product Info */}
         <div className="space-y-6">
           <span className="text-xs uppercase tracking-widest bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 px-3 py-1 rounded-full font-semibold">
             {product.category}
@@ -91,8 +85,7 @@ export default function ProductDetails() {
             
             <button 
               onClick={() => addToCart(product, qty)}
-              className="flex-1 bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 py-3.5 px-6 rounded-full font-medium flex items-center justify-center space-x-2 hover:opacity-90 transition shadow-md"
-            >
+              className="flex-1 bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 py-3.5 px-6 rounded-full font-medium flex items-center justify-center space-x-2 hover:opacity-90 transition shadow-md">
               <ShoppingBag className="w-5 h-5" />
               <span>Add to Cart</span>
             </button>

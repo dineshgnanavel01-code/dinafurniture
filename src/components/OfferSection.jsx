@@ -18,8 +18,7 @@ export default function OfferSection() {
           <div>
             <Link 
               to="/shop" 
-              className="inline-block bg-white text-stone-900 px-8 py-3.5 rounded-full font-medium hover:bg-stone-100 transition"
-            >
+              className="inline-block bg-white text-stone-900 px-8 py-3.5 rounded-full font-medium hover:bg-stone-100 transition">
               Claim Offer
             </Link>
           </div>

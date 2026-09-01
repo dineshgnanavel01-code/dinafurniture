@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { Trash2, ArrowRight, ShieldCheck, Smartphone, Banknote, CreditCard, QrCode } from 'lucide-react';
-
 export default function Cart() {
   const { cart, updateQuantity, removeFromCart, clearCart } = useCart();
   const navigate = useNavigate();
@@ -14,7 +13,6 @@ export default function Cart() {
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const shipping = subtotal > 0 ? 499 : 0;
   
-  // Calculated GST (18% standard furniture tax rate in India)
   const gst = Math.round(subtotal * 0.18);
   const total = subtotal + shipping + gst;
 
@@ -53,7 +51,6 @@ export default function Cart() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         
-        {/* Cart Items List */}
         <div className="lg:col-span-2 space-y-4">
           <h2 className="text-sm font-semibold uppercase tracking-wider text-stone-500 mb-4">Review Items ({cart.length})</h2>
           
@@ -88,7 +85,6 @@ export default function Cart() {
           ))}
         </div>
 
-        {/* Pricing Summary & Payment Integration */}
         <div className="bg-stone-50 dark:bg-stone-800/50 p-6 rounded-2xl h-fit space-y-6 border border-stone-200/60 dark:border-stone-700/50 shadow-sm">
           <h3 className="text-lg font-bold text-stone-900 dark:text-white" style={{ fontFamily: 'var(--font-secondary)' }}>Order Summary</h3>
           
@@ -111,7 +107,6 @@ export default function Cart() {
             </div>
           </div>
 
-          {/* Payment Method Selector */}
           <div className="space-y-3 pt-2">
             <label className="block text-xs font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-400">
               Select Payment Method
@@ -158,7 +153,6 @@ export default function Cart() {
               </button>
             </div>
 
-            {/* Dynamic Payment Input Fields */}
             {paymentMethod === 'upi' && (
               <div className="space-y-2 pt-1 animate-fade-in">
                 <input
@@ -195,8 +189,7 @@ export default function Cart() {
                     type="text"
                     placeholder="MM / YY"
                     maxLength={5}
-                    className="bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 rounded-xl px-4 py-2.5 text-xs text-stone-900 dark:text-white focus:outline-none"
-                  />
+                    className="bg-white dark:bg-stone-900 border border-stone-300 dark:border-stone-700 rounded-xl px-4 py-2.5 text-xs text-stone-900 dark:text-white focus:outline-none"/>
                   <input
                     type="password"
                     placeholder="CVV"
@@ -211,8 +204,7 @@ export default function Cart() {
           <button 
             onClick={handleCheckoutSubmit}
             disabled={isCheckingOut}
-            className="w-full bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 py-3.5 rounded-xl font-medium flex items-center justify-center space-x-2 hover:opacity-95 transition text-xs uppercase tracking-wider disabled:opacity-50 shadow-md"
-          >
+            className="w-full bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 py-3.5 rounded-xl font-medium flex items-center justify-center space-x-2 hover:opacity-95 transition text-xs uppercase tracking-wider disabled:opacity-50 shadow-md">
             <span>{isCheckingOut ? 'Processing Payment...' : `Complete Order (₹${total.toLocaleString('en-IN')})`}</span>
             {!isCheckingOut && <ArrowRight className="w-4 h-4" />}
           </button>

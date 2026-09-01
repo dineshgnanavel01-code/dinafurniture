@@ -33,8 +33,7 @@ export default function CategorySection() {
           <Link 
             to="/shop" 
             key={cat.name} 
-            className="group relative h-80 rounded-2xl overflow-hidden block shadow-sm hover:shadow-md transition"
-          >
+            className="group relative h-80 rounded-2xl overflow-hidden block shadow-sm hover:shadow-md transition">
             <img 
               src={cat.image} 
               alt={cat.name} 

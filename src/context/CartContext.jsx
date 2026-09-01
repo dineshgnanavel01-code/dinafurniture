@@ -25,7 +25,6 @@ export function CartProvider({ children }) {
     localStorage.setItem('furnics_wishlist', JSON.stringify(wishlist));
   }, [wishlist]);
 
-  // Handle Dark Mode HTML class injection
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add('dark');

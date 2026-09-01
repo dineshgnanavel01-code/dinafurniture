@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { ShoppingBag, Heart, Sun, Moon, User, Menu, X, Search } from 'lucide-react';
+import { ShoppingBag, Heart, Sun, Moon, User, Menu, X, Search, Compass, LayoutGrid, Sofa, Utensils, Bed, Briefcase } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../context/CartContext';
 import AuthModal from './AuthModal';
@@ -16,7 +16,6 @@ export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Added here to track URL pathname and search query updates
   const [activePath, setActivePath] = useState(location.pathname + location.search);
 
   useEffect(() => {
@@ -42,7 +41,6 @@ export default function Navbar() {
     }
   };
 
-  // Robust active link check utilizing the tracked activePath and location variables
   const isActiveLink = (path) => {
     try {
       const currentUrl = new URL(activePath, window.location.origin);
@@ -69,12 +67,12 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { name: 'Discover', path: '/' },
-    { name: 'Collection', path: '/shop' },
-    { name: 'Living', path: '/shop?category=Living+Room' },
-    { name: 'Dining', path: '/shop?category=Dining' },
-    { name: 'Bedroom', path: '/shop?category=Bedroom' },
-    { name: 'Studio', path: '/shop?category=Office' }
+    { name: 'Discover', path: '/', icon: Compass },
+    { name: 'Collection', path: '/shop', icon: LayoutGrid },
+    { name: 'Living', path: '/shop?category=Living+Room', icon: Sofa },
+    { name: 'Dining', path: '/shop?category=Dining', icon: Utensils },
+    { name: 'Bedroom', path: '/shop?category=Bedroom', icon: Bed },
+    { name: 'Studio', path: '/shop?category=Office', icon: Briefcase }
   ];
 
   return (
@@ -82,17 +80,26 @@ export default function Navbar() {
       <header className={`sticky top-0 z-50 transition-all duration-300 bg-stone-50/90 dark:bg-stone-900/90 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 ${
         scrolled ? 'shadow-md py-3' : 'py-4'
       }`} style={{ fontFamily: 'var(--font-primary)' }}>
+        
+        <div className="border-b border-stone-200/60 dark:border-stone-800/60 bg-stone-100/50 dark:bg-stone-900/50 py-1.5 px-4 sm:px-6 lg:px-8 mb-3 -mt-4 -mx-4 sm:-mx-6 lg:-mx-8">
+          <div className="container-custom mx-auto flex items-center justify-between text-[11px] tracking-wider uppercase text-stone-500 dark:text-stone-400 font-medium">
+            <span>Thoughtful furniture for modern living</span>
+            <span className="flex items-center gap-1.5 text-stone-700 dark:text-stone-300">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse"></span>
+              Free delivery above ₹4,999
+            </span>
+          </div>
+        </div>
+
         <div className="container-custom mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="flex items-center justify-between relative">
             
-            {/* Mobile Menu Button & Brand Logo */}
             <div className="flex items-center space-x-3">
               <button 
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="md:hidden p-2 text-stone-700 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-800 rounded-lg transition"
-                aria-label="Toggle Menu"
-              >
+                aria-label="Toggle Menu">
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
 
@@ -102,17 +109,16 @@ export default function Navbar() {
               </Link>
             </div>
 
-            {/* Desktop Center Navigation */}
             <nav className="hidden md:flex items-center space-x-1 bg-stone-200/70 dark:bg-stone-800/80 p-1.5 rounded-2xl border border-stone-300/40 dark:border-stone-700/50 shadow-inner relative">
               {navItems.map((item) => {
                 const active = isActiveLink(item.path);
+                const IconComponent = item.icon;
                 return (
                   <Link
                     key={item.name}
                     to={item.path}
-                    className="relative px-3.5 py-1.5 rounded-xl text-xs font-medium tracking-wide transition-colors duration-200 z-10"
-                    style={{ fontFamily: 'var(--font-primary)' }}
-                  >
+                    className="relative px-3.5 py-1.5 rounded-xl text-xs font-medium tracking-wide transition-colors duration-200 z-10 flex items-center space-x-1.5"
+                    style={{ fontFamily: 'var(--font-primary)' }}>
                     {active && (
                       <motion.div
                         layoutId="activePill"
@@ -120,6 +126,7 @@ export default function Navbar() {
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
+                    <IconComponent className={`w-3.5 h-3.5 ${active ? 'text-white dark:text-stone-900' : 'text-stone-400 dark:text-stone-500'}`} />
                     <span className={active ? 'text-white dark:text-stone-900 font-semibold' : 'text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white'}>
                       {item.name}
                     </span>
@@ -128,10 +135,8 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* Right Utility Icons & Modernized Actions */}
             <div className="flex items-center space-x-1.5 sm:space-x-2.5">
               
-              {/* Expandable Slide-in Search Input */}
               <div className="relative flex items-center">
                 <AnimatePresence>
                   {searchOpen && (
@@ -141,16 +146,14 @@ export default function Navbar() {
                       exit={{ width: 0, opacity: 0 }}
                       transition={{ duration: 0.25, ease: "easeInOut" }}
                       onSubmit={handleSearchSubmit}
-                      className="absolute right-0 flex items-center bg-white dark:bg-stone-800 rounded-xl border border-stone-300 dark:border-stone-700 shadow-sm overflow-hidden z-20"
-                    >
+                      className="absolute right-0 flex items-center bg-white dark:bg-stone-800 rounded-xl border border-stone-300 dark:border-stone-700 shadow-sm overflow-hidden z-20">
                       <input
                         type="text"
                         placeholder="Search collection..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         autoFocus
-                        className="w-full py-1.5 pl-3 pr-8 text-xs bg-transparent text-stone-800 dark:text-stone-100 focus:outline-none"
-                      />
+                        className="w-full py-1.5 pl-3 pr-8 text-xs bg-transparent text-stone-800 dark:text-stone-100 focus:outline-none"/>
                       <button type="submit" className="absolute right-2 text-stone-400 hover:text-stone-600 dark:hover:text-stone-200">
                         <Search className="w-3.5 h-3.5" />
                       </button>
@@ -161,34 +164,28 @@ export default function Navbar() {
                 <button 
                   onClick={() => setSearchOpen(!searchOpen)}
                   className="p-2 text-stone-700 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-800 rounded-xl transition"
-                  aria-label="Search"
-                >
+                  aria-label="Search">
                   <Search className="w-5 h-5" />
                 </button>
               </div>
 
-              {/* Theme Toggle Button */}
               <button 
                 onClick={toggleDarkMode}
                 className="p-2 text-stone-700 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-800 rounded-xl transition"
-                aria-label="Toggle Theme"
-              >
+                aria-label="Toggle Theme">
                 {darkMode ? <Sun className="w-5 h-5 text-amber-400" /> : <Moon className="w-5 h-5" />}
               </button>
 
-              {/* Wishlist Link */}
               <Link 
                 to="/wishlist" 
                 className="relative p-2 text-stone-700 dark:text-stone-300 hover:bg-stone-200 dark:hover:bg-stone-800 rounded-xl transition"
-                aria-label="Wishlist"
-              >
+                aria-label="Wishlist">
                 <Heart className="w-5 h-5" />
                 {wishlist?.length > 0 && (
                   <span className="absolute top-1 right-1 w-2 h-2 bg-amber-600 rounded-full"></span>
                 )}
               </Link>
 
-              {/* Cart Button */}
               <Link 
                 to="/cart" 
                 className="flex items-center space-x-1.5 bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 px-3.5 py-2 rounded-xl text-xs font-semibold shadow-sm hover:opacity-90 transition"
@@ -197,11 +194,9 @@ export default function Navbar() {
                 <span>{totalItems}</span>
               </Link>
 
-              {/* User Account Trigger */}
               <button 
                 onClick={() => setIsAuthOpen(true)}
-                className="hidden sm:flex items-center space-x-1 border border-stone-300 dark:border-stone-700 px-3 py-2 rounded-xl text-xs font-medium text-stone-700 dark:text-stone-300 hover:border-stone-400 transition"
-              >
+                className="hidden sm:flex items-center space-x-1 border border-stone-300 dark:border-stone-700 px-3 py-2 rounded-xl text-xs font-medium text-stone-700 dark:text-stone-300 hover:border-stone-400 transition">
                 <User className="w-4 h-4 text-amber-600" />
                 <span>Account</span>
               </button>
@@ -211,34 +206,34 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Navigation Dropdown Menu */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div 
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-t border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 px-4 py-6 space-y-3"
-            >
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition ${
-                    isActiveLink(item.path) 
-                      ? 'bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900' 
-                      : 'text-stone-600 dark:text-stone-300 hover:bg-stone-200/50 dark:hover:bg-stone-800/50'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              className="md:hidden border-t border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 px-4 py-6 space-y-3 mt-4">
+              {navItems.map((item) => {
+                const IconComponent = item.icon;
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`flex items-center space-x-3 px-4 py-2.5 rounded-xl text-sm font-medium transition ${
+                      isActiveLink(item.path) 
+                        ? 'bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900' 
+                        : 'text-stone-600 dark:text-stone-300 hover:bg-stone-200/50 dark:hover:bg-stone-800/50'
+                    }`}>
+                    <IconComponent className="w-4 h-4" />
+                    <span>{item.name}</span>
+                  </Link>
+                );
+              })}
               <div className="pt-3 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between px-2">
                 <button
                   onClick={() => { setMobileMenuOpen(false); setIsAuthOpen(true); }}
-                  className="flex items-center space-x-2 text-sm font-medium text-stone-700 dark:text-stone-300"
-                >
+                  className="flex items-center space-x-2 text-sm font-medium text-stone-700 dark:text-stone-300">
                   <User className="w-4 h-4 text-amber-600" />
                   <span>Account / Sign In</span>
                 </button>
@@ -248,7 +243,6 @@ export default function Navbar() {
         </AnimatePresence>
       </header>
 
-      {/* Authentication Modal */}
       <AuthModal isOpen={isAuthOpen} onClose={() => setIsAuthOpen(false)} />
     </>
   );
