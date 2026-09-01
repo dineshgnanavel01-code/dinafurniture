@@ -210,13 +210,21 @@ export default function Navbar() {
               </Link>
 
               {/* User Account Trigger */}
-              <button 
+              <motion.button
                 onClick={() => setIsAuthOpen(true)}
-                className="hidden sm:flex items-center space-x-1 border border-stone-300 dark:border-stone-700 px-3 py-2 rounded-xl text-xs font-medium text-stone-700 dark:text-stone-300 hover:border-stone-400 transition"
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.97 }}
+                className="hidden sm:flex items-center gap-2 rounded-2xl border border-stone-200 dark:border-stone-700 bg-white/80 dark:bg-stone-800/80 pl-1.5 pr-3 py-1.5 text-left shadow-sm hover:border-amber-400/70 hover:shadow-md transition-all duration-300"
               >
-                <User className="w-4 h-4 text-amber-600" />
-                <span>Account</span>
-              </button>
+                <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-amber-100 to-stone-100 text-amber-700 dark:from-amber-500/20 dark:to-stone-700 dark:text-amber-300">
+                  <User className="w-4 h-4" />
+                </span>
+                <span className="block">
+                  <span className="block text-[9px] font-bold uppercase tracking-[0.16em] text-stone-400 dark:text-stone-500">Welcome</span>
+                  <span className="block text-xs font-semibold text-stone-800 dark:text-stone-100">My Account</span>
+                </span>
+                <span className="ml-1 h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_0_3px_rgba(16,185,129,0.12)]" aria-hidden="true" />
+              </motion.button>
 
             </div>
 
