@@ -82,6 +82,15 @@ export default function Navbar() {
       <header className={`sticky top-0 z-50 transition-all duration-300 bg-stone-50/90 dark:bg-stone-900/90 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 ${
         scrolled ? 'shadow-md py-3' : 'py-4'
       }`} style={{ fontFamily: 'var(--font-primary)' }}>
+        <div className="hidden sm:block border-b border-stone-200/70 dark:border-stone-800/70 bg-stone-100/70 dark:bg-stone-950/40">
+          <div className="container-custom mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-stone-500 dark:text-stone-400">
+            <span>Thoughtful furniture for modern living</span>
+            <span className="flex items-center gap-2 text-amber-700 dark:text-amber-400">
+              <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
+              Free delivery above ₹4,999
+            </span>
+          </div>
+        </div>
         <div className="container-custom mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="flex items-center justify-between relative">
