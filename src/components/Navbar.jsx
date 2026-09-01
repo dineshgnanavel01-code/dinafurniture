@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { ShoppingBag, Heart, Sun, Moon, User, Menu, X, Search } from 'lucide-react';
+import { ShoppingBag, Heart, Sun, Moon, User, Menu, X, Search, Compass, Sofa, Utensils, BedDouble, BriefcaseBusiness, Store } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../context/CartContext';
 import AuthModal from './AuthModal';
@@ -69,12 +69,12 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { name: 'Discover', path: '/' },
-    { name: 'Collection', path: '/shop' },
-    { name: 'Living', path: '/shop?category=Living+Room' },
-    { name: 'Dining', path: '/shop?category=Dining' },
-    { name: 'Bedroom', path: '/shop?category=Bedroom' },
-    { name: 'Studio', path: '/shop?category=Office' }
+    { name: 'Discover', path: '/', icon: Compass },
+    { name: 'Collection', path: '/shop', icon: Store },
+    { name: 'Living', path: '/shop?category=Living+Room', icon: Sofa },
+    { name: 'Dining', path: '/shop?category=Dining', icon: Utensils },
+    { name: 'Bedroom', path: '/shop?category=Bedroom', icon: BedDouble },
+    { name: 'Studio', path: '/shop?category=Office', icon: BriefcaseBusiness }
   ];
 
   return (
@@ -103,27 +103,34 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Center Navigation */}
-            <nav className="hidden md:flex items-center space-x-1 bg-stone-200/70 dark:bg-stone-800/80 p-1.5 rounded-2xl border border-stone-300/40 dark:border-stone-700/50 shadow-inner relative">
+            <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-0.5 bg-stone-200/70 dark:bg-stone-800/80 p-1.5 rounded-2xl border border-stone-300/40 dark:border-stone-700/50 shadow-inner relative">
               {navItems.map((item) => {
                 const active = isActiveLink(item.path);
+                const Icon = item.icon;
                 return (
-                  <Link
+                  <motion.div
                     key={item.name}
-                    to={item.path}
-                    className="relative px-3.5 py-1.5 rounded-xl text-xs font-medium tracking-wide transition-colors duration-200 z-10"
-                    style={{ fontFamily: 'var(--font-primary)' }}
+                    whileHover={{ y: -1 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="relative"
                   >
-                    {active && (
-                      <motion.div
-                        layoutId="activePill"
-                        className="absolute inset-0 bg-stone-900 dark:bg-stone-100 rounded-xl shadow-sm z-[-1]"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                    <span className={active ? 'text-white dark:text-stone-900 font-semibold' : 'text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white'}>
-                      {item.name}
-                    </span>
-                  </Link>
+                    <Link
+                      to={item.path}
+                      aria-current={active ? 'page' : undefined}
+                      className={`group relative flex items-center gap-1.5 px-2.5 xl:px-3 py-2 rounded-xl text-[11px] font-semibold tracking-wide transition-colors duration-200 z-10 ${active ? 'text-white dark:text-stone-900' : 'text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white'}`}
+                      style={{ fontFamily: 'var(--font-primary)' }}
+                    >
+                      {active && (
+                        <motion.span
+                          layoutId="activePill"
+                          className="absolute inset-0 bg-stone-900 dark:bg-stone-100 rounded-xl shadow-sm -z-10"
+                          transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                        />
+                      )}
+                      <Icon className={`w-3.5 h-3.5 transition-transform duration-300 ${active ? 'text-amber-300 dark:text-amber-600' : 'group-hover:rotate-[-8deg]'}`} />
+                      <span>{item.name}</span>
+                    </Link>
+                  </motion.div>
                 );
               })}
             </nav>
@@ -220,7 +227,9 @@ export default function Navbar() {
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden border-t border-stone-200 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 px-4 py-6 space-y-3"
             >
-              {navItems.map((item) => (
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                return (
                 <Link
                   key={item.name}
                   to={item.path}
@@ -231,9 +240,13 @@ export default function Navbar() {
                       : 'text-stone-600 dark:text-stone-300 hover:bg-stone-200/50 dark:hover:bg-stone-800/50'
                   }`}
                 >
-                  {item.name}
+                  <span className="flex items-center gap-3">
+                    <Icon className="w-4 h-4 text-amber-600" />
+                    {item.name}
+                  </span>
                 </Link>
-              ))}
+                );
+              })}
               <div className="pt-3 border-t border-stone-200 dark:border-stone-800 flex items-center justify-between px-2">
                 <button
                   onClick={() => { setMobileMenuOpen(false); setIsAuthOpen(true); }}

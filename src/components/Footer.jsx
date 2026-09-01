@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ShieldCheck, Truck, Headphones, RotateCcw, Sparkles } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Truck, Headphones, RotateCcw, Sparkles, Sofa, Utensils, BedDouble, BriefcaseBusiness, ShoppingBag, LifeBuoy, PackageCheck, RefreshCcw, LockKeyhole } from 'lucide-react';
 
 export const Footer = () => {
   return (
@@ -95,24 +95,48 @@ export const Footer = () => {
           {/* Quick Links */}
           <div className="space-y-4">
             <h4 className="text-xs font-bold text-stone-900 dark:text-stone-100 uppercase tracking-widest">Quick Links</h4>
-            <ul className="space-y-3 text-sm">
-              <li><Link to="/shop" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Shop All</Link></li>
-              <li><Link to="/shop?category=Living+Room" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Living Room</Link></li>
-              <li><Link to="/shop?category=Bedroom" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Bedroom</Link></li>
-              <li><Link to="/shop?category=Dining" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Dining Space</Link></li>
-              <li><Link to="/shop?category=Office" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Office & Desks</Link></li>
+            <ul className="space-y-2 text-sm">
+              {[
+                { label: 'Shop All', to: '/shop', icon: ShoppingBag },
+                { label: 'Living Room', to: '/shop?category=Living+Room', icon: Sofa },
+                { label: 'Bedroom', to: '/shop?category=Bedroom', icon: BedDouble },
+                { label: 'Dining Space', to: '/shop?category=Dining', icon: Utensils },
+                { label: 'Office & Desks', to: '/shop?category=Office', icon: BriefcaseBusiness }
+              ].map(({ label, to, icon: Icon }) => (
+                <li key={label}>
+                  <Link to={to} className="group flex items-center gap-2.5 rounded-xl px-2.5 py-2 -mx-2.5 text-stone-600 dark:text-stone-400 hover:bg-white dark:hover:bg-stone-800/80 hover:text-amber-600 dark:hover:text-amber-400 transition-all duration-300">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400 group-hover:bg-amber-100 dark:group-hover:bg-amber-500/15 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300">
+                      <Icon className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-300" />
+                    </span>
+                    <span className="flex-1">{label}</span>
+                    <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Customer Service */}
           <div className="space-y-4">
             <h4 className="text-xs font-bold text-stone-900 dark:text-stone-100 uppercase tracking-widest">Customer Care</h4>
-            <ul className="space-y-3 text-sm">
-              <li><Link to="/contact" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Contact Us</Link></li>
-              <li><Link to="/faq" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">FAQs & Support</Link></li>
-              <li><Link to="/shipping" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Shipping & Delivery</Link></li>
-              <li><Link to="/returns" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Returns & Refunds</Link></li>
-              <li><Link to="/privacy" className="text-stone-600 dark:text-stone-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors inline-block hover:translate-x-1 duration-200">Privacy Policy</Link></li>
+            <ul className="space-y-2 text-sm">
+              {[
+                { label: 'Contact Us', to: '/contact', icon: Headphones },
+                { label: 'FAQs & Support', to: '/faq', icon: LifeBuoy },
+                { label: 'Shipping & Delivery', to: '/shipping', icon: PackageCheck },
+                { label: 'Returns & Refunds', to: '/returns', icon: RefreshCcw },
+                { label: 'Privacy Policy', to: '/privacy', icon: LockKeyhole }
+              ].map(({ label, to, icon: Icon }) => (
+                <li key={label}>
+                  <Link to={to} className="group flex items-center gap-2.5 rounded-xl px-2.5 py-2 -mx-2.5 text-stone-600 dark:text-stone-400 hover:bg-white dark:hover:bg-stone-800/80 hover:text-amber-600 dark:hover:text-amber-400 transition-all duration-300">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400 group-hover:bg-amber-100 dark:group-hover:bg-amber-500/15 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors duration-300">
+                      <Icon className="w-3.5 h-3.5 group-hover:scale-110 transition-transform duration-300" />
+                    </span>
+                    <span className="flex-1">{label}</span>
+                    <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
