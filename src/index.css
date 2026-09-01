@@ -64,9 +64,7 @@ img {
   font-family: var(--font-secondary);
 }
 
-<<<<<<< HEAD
 
-=======
 .contact-input {
   display: block;
   width: 100%;
@@ -98,8 +96,7 @@ img {
   color: #f5f5f4;
 }
 
-/* --- Dynamic Font Classes --- */
->>>>>>> 7f98e5724ab276abea0d5fd73ea7d538bfc1055b
+
 .font-sans-inter {
   --font-primary: Inter, ui-sans-serif, system-ui, sans-serif !important;
 }
